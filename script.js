@@ -112,7 +112,6 @@ class BeatMaker {
         this.playBtn.classList.add('playing');
         this.playBtn.querySelector('i').className = 'fas fa-pause';
 
-        // Calculate interval: 60000ms per minute / BPM / 4 (for 16th notes)
         const interval = (60000 / this.tempo) / 4;
 
         this.intervalId = setInterval(() => {
