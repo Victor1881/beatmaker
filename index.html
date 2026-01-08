@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeatMaker Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>🎵 BeatMaker</h1>
+        </header>
+
+        <main class="sequencer-main">
+            <!-- Track Controls -->
+            <div class="track-controls">
+                <div class="track-header">
+                    <span>Track</span>
+                    <span>Mute</span>
+                    <span>Sound</span>
+                </div>
+            </div>
+
+            <!-- Step Numbers -->
+            <div class="step-numbers">
+                <div class="step-spacer"></div>
+                <div class="numbers-grid">
+                    <span>1</span><span>2</span><span>3</span><span>4</span>
+                    <span>5</span><span>6</span><span>7</span><span>8</span>
+                    <span>9</span><span>10</span><span>11</span><span>12</span>
+                    <span>13</span><span>14</span><span>15</span><span>16</span>
+                </div>
+            </div>
+
+            <div class="tracks-container">
+                <div class="track" data-track="kick">
+                    <div class="track-info">
+                        <span class="track-label">Kick</span>
+                        <button class="mute-btn" data-track="kick" aria-label="Mute kick track">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                        <select class="sound-select" data-track="kick" aria-label="Select kick sound">
+                            <option value="kick1">Classic</option>
+                            <option value="kick2">808</option>
+                            <option value="kick3">Punchy</option>
+                        </select>
+                    </div>
+                    <div class="steps-grid" data-sound="kick">
+                    </div>
+                </div>
+
+                <div class="track" data-track="snare">
+                    <div class="track-info">
+                        <span class="track-label">Snare</span>
+                        <button class="mute-btn" data-track="snare" aria-label="Mute snare track">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                        <select class="sound-select" data-track="snare" aria-label="Select snare sound">
+                            <option value="snare1">Acoustic</option>
+                            <option value="snare2">Electronic</option>
+                            <option value="snare3">Clap</option>
+                        </select>
+                    </div>
+                    <div class="steps-grid" data-sound="snare">
+                    </div>
+                </div>
+
+                <div class="track" data-track="hihat">
+                    <div class="track-info">
+                        <span class="track-label">Hi-hat</span>
+                        <button class="mute-btn" data-track="hihat" aria-label="Mute hihat track">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                        <select class="sound-select" data-track="hihat" aria-label="Select hihat sound">
+                            <option value="hihat1">Closed</option>
+                            <option value="hihat2">Open</option>
+                            <option value="hihat3">Pedal</option>
+                        </select>
+                    </div>
+                    <div class="steps-grid" data-sound="hihat">
+                    </div>
+                </div>
+
+                <div class="track" data-track="crash">
+                    <div class="track-info">
+                        <span class="track-label">Crash</span>
+                        <button class="mute-btn" data-track="crash" aria-label="Mute crash track">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                        <select class="sound-select" data-track="crash" aria-label="Select crash sound">
+                            <option value="crash1">Crash</option>
+                            <option value="crash2">Ride</option>
+                        </select>
+                    </div>
+                    <div class="steps-grid" data-sound="crash">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="controls-section">
+            <div class="playback-controls">
+                <button id="playBtn" class="control-btn play-btn" aria-label="Play/Pause">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="stopBtn" class="control-btn stop-btn" aria-label="Stop">
+                    <i class="fas fa-stop"></i>
+                </button>
+                <button id="clearBtn" class="control-btn clear-btn" aria-label="Clear all">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+
+            <div class="tempo-section">
+                <label for="tempoSlider" class="tempo-label">
+                    Tempo: <span id="tempoValue">120</span> BPM
+                </label>
+                <input type="range" id="tempoSlider" class="tempo-slider"
+                       min="60" max="200" value="120" aria-label="Adjust tempo">
+            </div>
+
+            <div class="visualizer">
+                <div class="viz-bar" data-track="kick"></div>
+                <div class="viz-bar" data-track="snare"></div>
+                <div class="viz-bar" data-track="hihat"></div>
+                <div class="viz-bar" data-track="crash"></div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
